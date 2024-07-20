@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.core.widget.NestedScrollView
+    <ScrollView
         android:layout_width="match_parent"
         android:fillViewport="true"
         app:layout_constraintTop_toTopOf="parent"
@@ -79,5 +79,5 @@
                 android:id="@+id/editText"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
