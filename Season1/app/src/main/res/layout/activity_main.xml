@@ -59,6 +59,7 @@ android:textSize="17sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:text="Learn More..."
                 android:layout_marginEnd="6dp"
+                android:id="@+id/learnMoreButtton"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginBottom="6dp"
                 />
