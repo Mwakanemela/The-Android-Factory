@@ -70,16 +70,18 @@ class AudioActivity : AppCompatActivity(), SelectedFilesCount {
         binding.toolbar.likeIcon.setOnClickListener {
             val selectedAudios = audioAdapter.getSelectedAudios()
             Log.d(TAG, "onCreate: selectedAudios size: ${selectedAudios.size} ")
-//            for(i in selectedAudios) {
-//                this.selectedAudios.add(i.audioList)
-//            }
-//            val selectedAudioIndex = audioList.indexOf(selectedAudios)
-//            val selectedAudioUri = uriList[selectedAudioIndex]
-//            val resultIntent = Intent()
-//            resultIntent.putExtra("audio_url", audioUrl)
-//            resultIntent.putExtra("aUri", selectedAudioUri.toString())
-//            setResult(RESULT_OK, resultIntent)
-//            finish()
+            for(i in selectedAudios) {
+                this.selectedAudios.add(i.audioList)
+            }
+           
+            val arrayListToSend = ArrayList(this.selectedAudios)
+
+            Log.d(TAG, "onCreate: arrayListToSend ${arrayListToSend.size}")
+            val resultIntent = Intent()
+            resultIntent.putStringArrayListExtra("audio_url", arrayListToSend)
+            setResult(RESULT_OK, resultIntent)
+            finish()
+
         }
     }
 
@@ -125,15 +127,8 @@ class AudioActivity : AppCompatActivity(), SelectedFilesCount {
                 val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
                 val layoutManager = LinearLayoutManager(this)
                 recyclerView.layoutManager = layoutManager
-                audioAdapter = AudioAdapter(audioList, resources, this) { audioUrl ->
-                    // Pass the image URL back to the UserActivity
-//                    val selectedAudioIndex = audioList.indexOf(audioUrl)
-//                    val selectedAudioUri = uriList[selectedAudioIndex]
-//                    val resultIntent = Intent()
-//                    resultIntent.putExtra("audio_url", audioUrl)
-//                    resultIntent.putExtra("aUri", selectedAudioUri.toString())
-//                    setResult(RESULT_OK, resultIntent)
-//                    finish()
+                audioAdapter = AudioAdapter(audioList, resources, this) {
+
                 }
                 recyclerView.adapter = audioAdapter
             } else {
