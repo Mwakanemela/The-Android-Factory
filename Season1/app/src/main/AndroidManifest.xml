@@ -40,16 +40,30 @@
         android:theme="@style/Theme.Season1"
         tools:targetApi="31">
         <activity
-            android:name=".select_audios.model.AudioActivity"
+            android:name=".select_videos.VideosActivity"
             android:exported="false" />
         <activity
-            android:name=".select_audios.AudiosActivity"
+            android:name=".select_videos.SelectVideosActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".select_audios.model.AudioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".select_audios.AudiosActivity"
+            android:exported="true">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".DetailActivity"
