@@ -51,6 +51,8 @@ class VideosActivity : AppCompatActivity(), SelectedFilesCount {
             Log.d(TAG, "onCreate: selectedAudios size: ${selectedAudios.size} ")
             for(i in selectedAudios) {
                 this.selectedVideos.add(i.videoList)
+//                val selectedVideoUri = uriList[i.videoList]
+                Log.d(TAG, "onCreate: video uri ${i.videoUri}")
             }
 
             val arrayListToSend = ArrayList(this.selectedVideos)
@@ -116,9 +118,10 @@ class VideosActivity : AppCompatActivity(), SelectedFilesCount {
                 do {
                     val videoPath = it.getString(dataIndex)
                     if (!videoPath.isNullOrBlank()) {
-                        videoList.add(VideoDataClass(videoPath))
                         val uri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, it.getLong(0))
                         uriList.add(uri)
+                        videoList.add(VideoDataClass(videoPath, uri))
+                        
 //                        vUri = ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, it.getLong(0))
 //                        uriList.add(ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, it.getLong(0)))
                     }
