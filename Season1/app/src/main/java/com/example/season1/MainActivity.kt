@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             index -> data.add("Element $index")
         }
         val simpleAdapter = SimpleAdapter()
-        simpleAdapter.setData(data)
+        simpleAdapter.setData(data, "Header")
         recyclerView.adapter = simpleAdapter
 
         learnMoreButton.setOnClickListener {
