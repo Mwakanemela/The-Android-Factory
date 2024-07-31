@@ -1,7 +1,9 @@
 package com.example.season1.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.season1.R
@@ -51,6 +53,7 @@ class SimpleAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         LayoutInflater.from(parent.context).inflate(R.layout.view_holder_textview, parent, false)
     ) {
 
+        private val checkBox: CheckBox = itemView.findViewById(R.id.checkBox)
         private val textView: TextView = itemView.findViewById(R.id.textView)
         fun onBind(textToDisplay: String, position: Int) {
 
@@ -59,8 +62,18 @@ class SimpleAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             } else {
                 itemView.context.getColor(R.color.white)
             }
+
+            checkBox.setOnCheckedChangeListener { buttonView, isChecked ->
+                Log.d("isChecked", "onBind:isChecked $isChecked")
+
+                //if checked -> update item(data class)
+                //else -> update item(data class)
+            }
+            val isChecked = position % 2 == 1
+
             textView.text = textToDisplay
             textView.setBackgroundColor(color)
+            checkBox.isChecked = isChecked
         }
     }
 

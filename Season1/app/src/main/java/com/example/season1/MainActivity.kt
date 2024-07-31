@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         val data = ArrayList<String>()
 
-        repeat(15) {
+        repeat(50) {
             index -> data.add("Element $index")
         }
         val simpleAdapter = SimpleAdapter()
