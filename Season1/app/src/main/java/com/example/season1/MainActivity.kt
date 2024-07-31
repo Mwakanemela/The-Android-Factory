@@ -7,6 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.RecyclerView
+import com.example.season1.adapter.SimpleAdapter
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +24,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         val learnMoreButton: Button = findViewById(R.id.learnMoreButtton)
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+
+        val data = ArrayList<String>()
+
+        repeat(15) {
+            index -> data.add("Element $index")
+        }
+        val simpleAdapter = SimpleAdapter()
+        simpleAdapter.setData(data)
+        recyclerView.adapter = simpleAdapter
 
         learnMoreButton.setOnClickListener {
             val intent = Intent(this@MainActivity, DetailActivity::class.java)
